@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "page": {
+            "required": false,
+            "type": "integer",
+            "default": 1
+        },
+        "size": {
+            "required": false,
+            "type": "integer"
+        },
+        "analysis_slug": {
+            "required": true,
+            "type": "string"
+        },
+        "robots_txt": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

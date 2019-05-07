@@ -1,0 +1,701 @@
+{
+    "title": "Botify",
+    "description": "Botify Saas API",
+    "docsUrl": "https://developers.botify.com/",
+    "url": "https://api.apis.guru/v2/specs/botify.com/1.0.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.botify.com/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "DjangoRestToken": {
+                "label": "Authorization (DjangoRestToken)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "getProjectAnalyses": {
+            "main": "./lib/actions/getProjectAnalyses.js",
+            "title": "List all analyses for a project",
+            "description": "List all analyses for a project",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getProjectAnalyses.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAnalysisSummary": {
+            "main": "./lib/actions/getAnalysisSummary.js",
+            "title": "Get an Analysis detail",
+            "description": "Get an Analysis detail",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAnalysisSummary.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "updateAnalysis": {
+            "main": "./lib/actions/updateAnalysis.js",
+            "title": "Update an Analysis' attribute",
+            "description": "Update an Analysis' attribute",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/updateAnalysis.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getCrawlStatistics": {
+            "main": "./lib/actions/getCrawlStatistics.js",
+            "title": "Return global statistics for an analysis",
+            "description": "Return global statistics for an analysis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getCrawlStatistics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getCrawlStatisticsByFrequency": {
+            "main": "./lib/actions/getCrawlStatisticsByFrequency.js",
+            "title": "Return crawl statistics grouped by time frequency (1 min, 5 mins or 60 min)",
+            "description": "Return crawl statistics grouped by time frequency (1 min, 5 mins or 60 min) for an analysis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getCrawlStatisticsByFrequency.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getCrawlStatisticsUrls": {
+            "main": "./lib/actions/getCrawlStatisticsUrls.js",
+            "title": "Return a list of 1000 latest URLs crawled (all crawled URLs or only URLS with HTTP errors)",
+            "description": "Return a list of 1000 latest URLs crawled (all crawled URLs or only URLS with HTTP errors)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getCrawlStatisticsUrls.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getGanalyticsOrphanURLs": {
+            "main": "./lib/actions/getGanalyticsOrphanURLs.js",
+            "title": "List of Orphan URLs",
+            "description": "Legacy    List of Orphan URLs. URLs which generated visits from the selected source according to Google Analytics data, but were not crawled with by the Botify crawler (either because no links to them were found on the website, or because the crawler was not allowed to follow these links according to the project settings).   For a search engine (medium: origanic; sources: all, aol, ask, baidu, bing, google, naver, yahoo, yandex) or a social network (medium: social; sources: all, facebook, google+, linkedin, pinterest, reddit, tumblr, twitter)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getGanalyticsOrphanURLs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getLinksPercentiles": {
+            "main": "./lib/actions/getLinksPercentiles.js",
+            "title": "Get inlinks percentiles",
+            "description": "Get inlinks percentiles",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getLinksPercentiles.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getPageRankLost": {
+            "main": "./lib/actions/getPageRankLost.js",
+            "title": "Lost pagerank",
+            "description": "Lost pagerank",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getPageRankLost.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getKeywordsStats": {
+            "main": "./lib/actions/getKeywordsStats.js",
+            "title": "List clicks and impressions per day",
+            "description": "List clicks and impressions per day",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getKeywordsStats.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSitemapsReport": {
+            "main": "./lib/actions/getSitemapsReport.js",
+            "title": "Get global information of the sitemaps found (sitemaps indexes, invalid sitemaps urls, etc",
+            "description": "Get global information of the sitemaps found (sitemaps indexes, invalid sitemaps urls, etc.)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSitemapsReport.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSitemapsSamplesOutOfConfig": {
+            "main": "./lib/actions/getSitemapsSamplesOutOfConfig.js",
+            "title": "Sample list of URLs which were found in your sitemaps but outside of the",
+            "description": "Sample list of URLs which were found in your sitemaps but outside of the crawl perimeter defined for the project, for instance domain/subdomain or protocol (HTTP/HTTPS) not allowed in the crawl settings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSitemapsSamplesOutOfConfig.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSitemapsSamplesSitemapsOnly": {
+            "main": "./lib/actions/getSitemapsSamplesSitemapsOnly.js",
+            "title": "Sample list of URLs which were found in your sitemaps, within the project",
+            "description": "Sample list of URLs which were found in your sitemaps, within the project allowed scope (allowed domains/subdomains/protocols), but not found by the Botify crawler.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSitemapsSamplesSitemapsOnly.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getLinksTopDomains": {
+            "main": "./lib/actions/getLinksTopDomains.js",
+            "title": "Top domains",
+            "description": "Top domains",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getLinksTopDomains.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getLinksTopSubdomains": {
+            "main": "./lib/actions/getLinksTopSubdomains.js",
+            "title": "Top subddomains",
+            "description": "Top subddomains",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getLinksTopSubdomains.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getVisitsOrphanURLs": {
+            "main": "./lib/actions/getVisitsOrphanURLs.js",
+            "title": "List of Orphan URLs",
+            "description": "List of Orphan URLs. URLs which generated visits from the selected source according to Google Analytics data, but were not crawled with by the Botify crawler (either because no links to them were found on the website, or because the crawler was not allowed to follow these links according to the project settings).   For a search engine (medium: origanic; sources: all, aol, ask, baidu, bing, google, naver, yahoo, yandex) or a social network (medium: social; sources: all, facebook, google+, linkedin, pinterest, reddit, tumblr, twitter)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getVisitsOrphanURLs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAnalysisSegments": {
+            "main": "./lib/actions/getAnalysisSegments.js",
+            "title": "Get the segments feature public metadata of an analysis",
+            "description": "Get the segments feature public metadata of an analysis.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAnalysisSegments.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getRobotsTxtIndexesView": {
+            "main": "./lib/actions/getRobotsTxtIndexesView.js",
+            "title": "Return a list of all robots",
+            "description": "Return a list of all robots.txt files found on the project's domains.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getRobotsTxtIndexesView.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getRobotsTxtFileView": {
+            "main": "./lib/actions/getRobotsTxtFileView.js",
+            "title": "Return content of a robots",
+            "description": "Return content of a robots.txt file.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getRobotsTxtFileView.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUrls": {
+            "main": "./lib/actions/getUrls.js",
+            "title": "Executes a query and returns a paginated response",
+            "description": "Executes a query and returns a paginated response",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUrls.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUrlsAggs": {
+            "main": "./lib/actions/getUrlsAggs.js",
+            "title": "Query aggregator",
+            "description": "Query aggregator. It accepts multiple queries and dispatches them on ES or BQ.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUrlsAggs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUrlsDatamodel": {
+            "main": "./lib/actions/getUrlsDatamodel.js",
+            "title": "Gets an Analysis datamodel",
+            "description": "Gets an Analysis datamodel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUrlsDatamodel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUrlsDatasets": {
+            "main": "./lib/actions/getUrlsDatasets.js",
+            "title": "Gets Analysis Datasets",
+            "description": "Gets Analysis Datasets",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUrlsDatasets.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUrlsExports": {
+            "main": "./lib/actions/getUrlsExports.js",
+            "title": "A list of the CSV Exports requests and their current status",
+            "description": "A list of the CSV Exports requests and their current status",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUrlsExports.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createUrlsExport": {
+            "main": "./lib/actions/createUrlsExport.js",
+            "title": "Creates a new UrlExport object and starts a task that will export the results into a csv",
+            "description": "Creates a new UrlExport object and starts a task that will export the results into a csv. Returns the model id that manages the task",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createUrlsExport.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUrlsExportStatus": {
+            "main": "./lib/actions/getUrlsExportStatus.js",
+            "title": "Checks the status of an CSVUrlExportJob object",
+            "description": "Checks the status of an CSVUrlExportJob object. Returns json object with the status.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUrlsExportStatus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUrlHTML": {
+            "main": "./lib/actions/getUrlHTML.js",
+            "title": "Gets the HTML of an URL for an analysis",
+            "description": "Gets the HTML of an URL for an analysis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUrlHTML.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUrlsSuggestedFilters": {
+            "main": "./lib/actions/getUrlsSuggestedFilters.js",
+            "title": "Return most frequent segments (= suggested patterns in the previous version)",
+            "description": "Return most frequent segments (= suggested patterns in the previous version) for a Botify Query.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUrlsSuggestedFilters.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUrlDetail": {
+            "main": "./lib/actions/getUrlDetail.js",
+            "title": "Gets the detail of an URL for an analysis",
+            "description": "Gets the detail of an URL for an analysis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUrlDetail.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUserProjects": {
+            "main": "./lib/actions/getUserProjects.js",
+            "title": "List all active projects for the user",
+            "description": "List all active projects for the user",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUserProjects.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "postJobAutomation": {
+            "main": "./lib/actions/postJobAutomation.js",
+            "title": "Creates a new JobAutomation from data",
+            "description": "Creates a new JobAutomation from data",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/postJobAutomation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "postJobAutomationFromJob": {
+            "main": "./lib/actions/postJobAutomationFromJob.js",
+            "title": "Creates a new JobAutomation from an existing job",
+            "description": "Creates a new JobAutomation from an existing job",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/postJobAutomationFromJob.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getProjectCollections": {
+            "main": "./lib/actions/getProjectCollections.js",
+            "title": "List all collections for a project",
+            "description": "List all collections for a project",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getProjectCollections.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getCollectionDetail": {
+            "main": "./lib/actions/getCollectionDetail.js",
+            "title": "Get the detail of a collection",
+            "description": "Get the detail of a collection",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getCollectionDetail.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDatasourcesDetails": {
+            "main": "./lib/actions/getDatasourcesDetails.js",
+            "title": "List all datasources for a project",
+            "description": "List all datasources for a project",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDatasourcesDetails.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSavedFilters": {
+            "main": "./lib/actions/getSavedFilters.js",
+            "title": "List all the project's saved filters (each filter's name, ID and filter value)",
+            "description": "List all the project's saved filters (each filter's name, ID and filter value)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSavedFilters.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSavedFilter": {
+            "main": "./lib/actions/getSavedFilter.js",
+            "title": "Retrieves a specific saved filter's name, ID and filter value",
+            "description": "Retrieves a specific saved filter's name, ID and filter value",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSavedFilter.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getProjectUrlsAggs": {
+            "main": "./lib/actions/getProjectUrlsAggs.js",
+            "title": "Project Query aggregator",
+            "description": "Project Query aggregator. It accepts multiple queries that will be executed on all completed analyses in the project",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getProjectUrlsAggs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAllUserProjects": {
+            "main": "./lib/actions/getAllUserProjects.js",
+            "title": "List all active projects for the user",
+            "description": "List all active projects for the user",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAllUserProjects.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

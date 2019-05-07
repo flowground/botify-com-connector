@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "area": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "current",
+                "disappeared",
+                "new",
+                "search_engines_orphans",
+                "gsc_keywords",
+                "gsc_keywords_by_country"
+            ],
+            "default": "current"
+        },
+        "previous_crawl": {
+            "required": false,
+            "type": "string"
+        },
+        "analysis_slug": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

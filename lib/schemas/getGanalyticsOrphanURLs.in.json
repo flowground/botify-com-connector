@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "page": {
+            "required": false,
+            "type": "integer",
+            "default": 1
+        },
+        "size": {
+            "required": false,
+            "type": "integer"
+        },
+        "analysis_slug": {
+            "required": true,
+            "type": "string"
+        },
+        "medium": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "organic",
+                "social"
+            ]
+        },
+        "source": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "all",
+                "aol",
+                "ask",
+                "baidu",
+                "bing",
+                "facebook",
+                "google",
+                "google+",
+                "linkedin",
+                "naver",
+                "pinterest",
+                "reddit",
+                "tumblr",
+                "twitter",
+                "yahoo",
+                "yandex"
+            ]
+        }
+    }
+}

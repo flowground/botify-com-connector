@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "area": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "current",
+                "disappeared",
+                "new",
+                "gsc_keywords",
+                "gsc_keywords_by_country"
+            ],
+            "default": "current"
+        },
+        "last_analysis_slug": {
+            "required": false,
+            "type": "string"
+        },
+        "nb_analyses": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 20
+        },
+        "requestBody": {
+            "items": {
+                "description": "AggsQuery",
+                "properties": {
+                    "aggs": {
+                        "items": {
+                            "type": "object"
+                        },
+                        "type": "array"
+                    },
+                    "filters": {
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
+        }
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "type": "object",
+    "properties": {
+        "area": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "current",
+                "disappeared",
+                "new",
+                "search_engines_orphans",
+                "gsc_keywords",
+                "gsc_keywords_by_country"
+            ],
+            "default": "current"
+        },
+        "page": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "size": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "previous_crawl": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Query",
+            "properties": {
+                "fields": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "filters": {
+                    "type": "object"
+                },
+                "sort": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "username": {
+            "required": true,
+            "type": "string"
+        },
+        "project_slug": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

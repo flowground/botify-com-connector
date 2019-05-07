@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "username": {
+            "required": true,
+            "type": "string"
+        },
+        "project_slug": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Job automation creation",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "job_type": {
+                    "type": "string"
+                },
+                "payload": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "job_type"
+            ],
+            "type": "object"
+        }
+    }
+}

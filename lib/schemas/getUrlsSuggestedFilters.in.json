@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "area": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "current",
+                "new"
+            ],
+            "default": "current"
+        },
+        "project_slug": {
+            "required": true,
+            "type": "string"
+        },
+        "analysis_slug": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "AggsQuery",
+            "properties": {
+                "aggs": {
+                    "items": {
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "filters": {
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

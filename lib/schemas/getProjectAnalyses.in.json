@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "page": {
+            "required": false,
+            "type": "integer",
+            "default": 1
+        },
+        "size": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "only_success": {
+            "required": false,
+            "type": "boolean"
+        },
+        "fields": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

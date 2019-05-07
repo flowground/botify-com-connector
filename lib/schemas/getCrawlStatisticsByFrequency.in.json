@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "limit": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "frequency": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "1mn",
+                "5mn",
+                "60mn"
+            ]
+        },
+        "analysis_slug": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

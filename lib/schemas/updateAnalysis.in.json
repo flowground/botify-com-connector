@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "username": {
+            "required": true,
+            "type": "string"
+        },
+        "project_slug": {
+            "required": true,
+            "type": "string"
+        },
+        "analysis_slug": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Analysis Update",
+            "properties": {
+                "pinned": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
